@@ -1,0 +1,170 @@
+<h1>FUNDAMENTOS DE ANGULAR</h1>
+
+
+<!-- Propiedades e interpolación -->
+ <section>
+  <h2>Propiedades e interpolación en Angular</h2>
+  <p>Las propiedaes: variables que nosotros estructuramos en el TS</p>
+  <p>La interpolación: el uso de esas variables en nuestro HTML, de forma automática</p>
+
+ <!-- La interpolación de variables se hace con {{}} -->
+
+  <p>Este es un bootcamp con la especialista {{especialista}}, el bootcamp tiene {{horasBootcamp}} horas.</p>
+
+  <h3>contenido horasBootcamp</h3>
+  <ul>
+    <li>Primero {{contenidoBootcamp.tecnologia1}}</li>
+    <li>Después {{contenidoBootcamp.tecnologia2}}</li>
+    <li>Actualmente estamos viendo {{contenidoBootcamp.tecnologia4}}</li>
+  </ul>
+
+  <p> El contenido de los productos van a ser {{objetoProducto.nombre}}, la cantidad de producto es {{objetoProducto.cantidad}} y el producto se encuentra vendido actualmente </p>
+
+ </section>
+
+ <hr>
+
+ <!-- Enlace de datos -->
+ <section>
+
+  <h2>Enlace de datos</h2>
+  <h3>Manejo de eventos:</h3>
+  <p>Acciones que podemos ejecutar cuando hacemos algo en el navegador</p>
+
+  <button type="button" (click)="saludo()">Click me</button>
+
+  <!-- Ejemplo 2 -->
+  
+  <div class="caja {{colorFondo}}" (click)="manejarClick()" (mouseover)="manejarMouseOver()" (mouseout)="manejarMouseOut()">
+    holaaaa {{colorFondo}}
+  </div>
+
+  <h3>Enlace de atributos:</h3>
+  <p>Esto se usa cuando necesitamos manipular atributos de nuestro HTML de forma condicional</p>
+
+  <button type="button" [hidden]="!isLogged">Comprar producto</button>
+
+  
+
+ </section>
+
+ <!-- 
+  {{Interpolación}}
+  (eventos)
+  [atributos condicionados]
+ -->
+
+ <hr>
+
+ <!-- Control de flujo -->
+
+ <section>
+  <h2>Control de flujo</h2>
+  <p>Condicionales y condicionales</p>
+
+  <h3>CONDICIONALES -> If</h3>
+
+  @if(isDelete){
+    <button type="button">Borrar Producto</button>
+  }@else {
+    <button type="button">Modificar Producto</button>
+    <ul>
+      <li>Productho</li>
+      <li>Productho</li>
+      <li>Productho</li>
+      <li>Productho</li>
+      <li>Productho</li>
+      <li>Productho</li>
+    </ul>
+  }
+
+  <!-- @for (item of items; track $index) {} -->
+
+  <h3>Condicional con directiva de angular</h3>
+  <!-- Directica ngIf -->
+   <div *ngIf="isShowed; else noDiv">
+    <p>Este parrafo se muestra porque isShowed es verdadero </p>
+   </div>
+
+   <ng-template #noDiv>
+    <p>Este párrafo se muestra porque isShowed es falso</p>
+   </ng-template>
+
+   <h3> Ciclo for</h3>
+   <p>Los productos en Stock son:</p>
+
+   <ol>
+    <li class="caja" *ngFor="let producto of productos">{{producto}}</li>
+   </ol>
+
+ </section>
+
+ <hr>
+
+ <!--  FORMULARIOS -->
+<!-- ES LA FORMA DE PEDIRLE INFORMACIÓN AL USUARIO -->
+
+<section>
+  <h3>FORMULARIOS EN ANGULAR</h3>
+  <p>Hay dos tipos: Formularios basados en una plantilla y Formularios reactivos</p>
+
+  <h4>FORMULARIOS DRIVEN-TEMPLATES</h4>
+  <!-- importar FormModule -->
+
+  <div>
+    <form (ngSubmit)="manejarEnvio()">
+      <label>
+        Color Favorito
+        <input type="text" name="colorFav" [(ngModel)]="colorFavorito">
+      </label>
+
+      <br>
+      <br>
+
+      <label>
+        Nombre
+        <input type="text" name="nombre" [(ngModel)]="nombre">
+      </label>
+
+      <br>
+      <br>
+
+      <button type="submit">Enviar información</button>
+    </form>
+  </div>
+
+
+  <!-- FORMULARIOS REACTIVOS -->
+   <h3>FORMULARIOS REACTIVOS</h3>
+
+  <div>
+    <form [formGroup]="login" (ngSubmit)="manejarSubmit()">
+      <label>
+        Correo
+        <input type="email" name="email" formControlName="correo">
+      </label>
+
+      <br>
+      <br>
+
+      <label>
+        Contraseña
+        <input type="password" name="password" formControlName = "contrasenia">
+      </label>
+
+      <br>
+      <br>
+
+      <button type="submit">Enviar información 2</button>
+    </form>
+  </div>
+
+</section>
+
+<!-- COMUNICACIÓN ENTRE COMPONENTES -->
+
+<hr>
+<section>
+  <h3>COMUNICACIÓN ENTRE COMPONENTES</h3>
+  <app-componente-padre></app-componente-padre>
+</section>

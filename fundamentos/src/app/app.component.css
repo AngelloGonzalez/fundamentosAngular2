@@ -1,0 +1,18 @@
+.caja{
+    width: 150px;
+    height: 150px;
+    border: solid 2px pink;
+    margin-top: 50px;
+}
+
+.colorVerde{
+    background-color: green;
+}
+
+.colorRojo{
+    background-color: red;
+}
+
+.colorPink{
+    background-color: pink;
+}

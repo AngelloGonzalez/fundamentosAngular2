@@ -1,0 +1,42 @@
+<!-- 
+    1. creamos componente padre
+    2. creamos componente hijo
+    3. importamos el componente padre en app.component
+    4. importamos al componente hijo dentro del componente padre
+-->
+
+
+<p>HOLAAAAAAAAAAAAAAA ME ESTOY MOSTRANDO DESDE EL COMPONENTE PADRE</p>
+
+<section>
+    <h2>Acá visualizamos nuestro componente hijo</h2>
+
+    <!-- 
+        [] -> Enviar información
+        () -> Recibir Información
+        [()] -> Tanto recibir como enviar
+    -->
+
+    <!-- 
+        Simpre entonces, cuando el hijo emite información, el padre la debe escuchar
+
+        Para que el padre entienda, que debe recibir información, se debe usar $event
+    -->
+    <app-componente-hijo [textoRecibir]="textoEnviar" (eventoEnviarNombre)="recibirNombre($event)"></app-componente-hijo>
+
+</section>
+
+<hr>
+
+<section>
+
+    <h3>Esta es la información que me envía el hijo</h3>
+
+    <p>Este es el nombre enviado: {{nombreRecibido}}</p>
+
+    <h4>Todos los nombres guardados</h4>
+    <ul>
+        <li *ngFor="let item of arregloNombresRecibidos">{{item}}</li>
+    </ul>
+
+</section>
