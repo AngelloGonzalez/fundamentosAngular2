@@ -22,7 +22,7 @@ export class AppComponent {
   // == o === -> comparación
   nombreFramework: string = 'Angular';
   horasBootcamp: number = 300;
-  especialista: string = 'Luisa Castaño';
+  especialista: string = 'Angelo Gonzalez';
   contenidoBootcamp = {
     tecnologia1: 'HTML',
     tecnologia2: 'CSS',
@@ -57,7 +57,7 @@ export class AppComponent {
   // 2. Funciones o métodos
 
   saludo(){
-    console.log('Holaaaaaaaaa, soy un botón al que le diste click');
+    console.log('Hola, soy un botón al que le diste click');
   }
 
   manejarMouseOver(){
